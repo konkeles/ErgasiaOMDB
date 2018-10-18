@@ -5,11 +5,10 @@ CREATE TABLE users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-/*
+
 CREATE TABLE userMovies (
     id_user INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_movie INT NOT NULL UNIQUE,
     movie_api_link VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-*/
