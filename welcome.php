@@ -14,7 +14,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> 
     <style type="text/css">
         body{ font: 14px sans-serif; text-align: center; }
     </style>
@@ -31,21 +31,42 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     
 <!-- dikos mou kodikas arxi -->
+    
     <div style="margin:10px">
-        <img src="search.png" style="margin:10px">
+        <img id="poster" src="search.png" style="margin:10px">
         <br>
         <input type="search" id="searchTitle" placeholder="Τίτλος ταινίας.." title="γράψε τον τίτλο στα αγγλικά">
-        
-        <button onclick="omdbApi()">Try it</button>
-        <p id="demo"></p>
+        <button onclick="omdbApi()">Αναζήτηση</button>
+        <p id="demo">demo1</p>
+         <p id="demo2">demo2</p>
     </div>
     
-<!-- dikos mou kodikas telos -->
-
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-    </p>
+    <!-- epiloges like - dislike -->
+    <div id="rb" style="margin:10px">
+        <input type="radio" name="choose" value="like" onclick="check()"> Like 
+        <input type="radio" name="choose" value="nah" onclick="check()"> Dislike
+    </div>
+    
+    <div style="margin:10px">    
+      <!--  <button onclick="omdbApi2()">Αποθήκευση</button>   -->
+        <button class="button" onclick="showUser()">Η λίστα μου</button>
+        
+    </div> 
+    <div id="txtHint"><b>Person info will be listed here...</b></div>
+    
+   
+    
+    
+    
+    
+    
+<!-- dikos mou kodikas telos -->   
+    <footer style="margin:10px">
+        <p>
+            <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+            <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+        </p>
+    </footer>
     
 </body>
 </html>
