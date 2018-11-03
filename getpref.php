@@ -43,19 +43,18 @@ $result = mysqli_query($con,$sql);
 echo "<table>
 <tr>
 <th>id_user</th>
-<th>preference</th>
 <th>id_movie</th>
 <th>created_at</th>
 
 </tr>";
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>" . $row['id_user'] . "</td>";
-    echo "<td>" . $row['preference'] . "</td>";
-    echo "<td>" . $row['id_movie'] . "</td>";
-    echo "<td>" . $row['created_at'] . "</td>";
+    echo "<td style='width:10%;'>" . $row['id_user'] . "</td>";
+    echo "<td style='width:30%;'>" . $row['id_movie'] . "</td>";
+    echo "<td style='width:10%;'>" . $row['created_at'] . "</td>";
     echo "</tr>";
 }
+
 echo "</table>";
 mysqli_close($con);
 ?>

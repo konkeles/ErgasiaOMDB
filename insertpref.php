@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,27 +38,14 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"userMovies");
-$sql="insert into userMovies WHERE id_user = '".$_SESSION["id"]."'";
+$sql="insert into userMovies (id_user,id_movie) values  (".$_SESSION["id"].",'".$_POST["movie_id"]."');";
+       
 $result = mysqli_query($con,$sql);
+//
+//    echo("done");
 
-echo "<table>
-<tr>
-<th>id_user</th>
-<th>preference</th>
-<th>id_movie</th>
-<th>created_at</th>
-
-</tr>";
-while($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>" . $row['id_user'] . "</td>";
-    echo "<td>" . $row['preference'] . "</td>";
-    echo "<td>" . $row['id_movie'] . "</td>";
-    echo "<td>" . $row['created_at'] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
 mysqli_close($con);
+     echo 'done';
 ?>
 </body>
 </html>

@@ -32,34 +32,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
 <!-- dikos mou kodikas arxi -->
     
-    <div style="margin:10px">
-        <img id="poster" src="search.png" style="margin:10px">
-        <br>
-        <input type="search" id="searchTitle" placeholder="Τίτλος ταινίας.." title="γράψε τον τίτλο στα αγγλικά">
-        <button onclick="omdbApi()">Αναζήτηση</button>
-        <p id="demo">demo1</p>
-         <p id="demo2">demo2</p>
+    <div class="div">
+        <form name='frm'  >
+            Movie Title: <input style='width:30%' name=title id='ttl' type=text required/>
+            <br>
+            Year: <input style='width:5%' name=year id='yr' type=text/><br>
+            <input style='width:30%' name="sub" onclick="omdbApi()" value="Apply filters" type="button"/>
+        </form>
     </div>
     
-    <!-- epiloges like - dislike -->
-    <div id="rb" style="margin:10px">
-        <input type="radio" name="choose" value="like" onclick="check()"> Like 
-        <input type="radio" name="choose" value="nah" onclick="check()"> Dislike
-    </div>
+    <div id="selection_images"></div>
     
+    <p id="demo">demo1</p>
+
     <div style="margin:10px">    
-      <!--  <button onclick="omdbApi2()">Αποθήκευση</button>   -->
-        <button class="button" onclick="showUser()">Η λίστα μου</button>
-        
+        <button class="button" onclick="showUser()">Η λίστα μου</button>        
     </div> 
-    <div id="txtHint"><b>Person info will be listed here...</b></div>
     
-   
-    
-    
-    
-    
-    
+    <div id="txtHint" class="div"><b>Person info will be listed here...</b></div>
+        
 <!-- dikos mou kodikas telos -->   
     <footer style="margin:10px">
         <p>
