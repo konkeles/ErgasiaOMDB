@@ -1,89 +1,104 @@
 <?php
-// Initialize the session
+// anoigo to session
 session_start();
  
-// Check if the user is already logged in, if yes then redirect him to welcome page
+// elegxo an to $_SESSION["loggedin"] exei oristei kai exei timi. 
+// an einai sundemenos anakateuthino stin selida welcome.php
+// an den einai sundemenos sunexizo gia to login
+// to isset elegxei an i metavliti exei oristei kai den einai null
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("location: welcome.php");
   exit;
 }
  
-// Include config file
+// kano include to arxeio me ta stoixeia tis sundesis stin vasi
 require_once "config.php";
  
-// Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = "";
+// orismos kai arxikopoiisi metavliton tou login
+$username = "";
+$password = "";
+$username_err = ""; 
+$password_err = "";
  
-// Processing form data when form is submitted
+// elegxos ton dedomenon tis formas sto submit
+// to trim afairei ta kena prin kai meta to string
+// to empty elegxei an i metavliti exei timi i einai null
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
+    // Elegxos an sumplirothike to username
+    if(empty(trim($_POST["username"]))){ // elegxo an to username einai keno
+        $username_err = "Παρακαλώ εισάγετε το username!";
     } else{
-        $username = trim($_POST["username"]);
+        $username = trim($_POST["username"]); // kataxoro tin timi apo to POST sto username.
     }
     
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+    // Elegxos an sumplirothike to password
+    if(empty(trim($_POST["password"]))){ // elegxo an to password einai keno
+        $password_err = "Παρακαλώ εισάγετε το password!";
     } else{
-        $password = trim($_POST["password"]);
+        $password = trim($_POST["password"]); // kataxoro tin timi apo to POST sto password
     }
     
-    // Validate credentials
+    // elegxos an uparxoun ta diapisteutiria stin vasi
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql_query = "SELECT id, username, password FROM users WHERE username = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+        if($sql_exet = mysqli_prepare($link, $sql_query)){
             
-            // Set parameters
+            // kano Bind tin metavliti sto query san parametro
+            mysqli_stmt_bind_param($sql_exet, "s", $param_username);
+            
+            // orizo to $username os timi tis parametrou
             $param_username = $username;
             
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Store result
-                mysqli_stmt_store_result($stmt);
+            // ektelo to query
+            if(mysqli_stmt_execute($sql_exet)){
                 
-                // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
+                // apothikeuo to apotelesma
+                mysqli_stmt_store_result($sql_exet);
+                
+                // elegxo an to username uparxei kai einai monadiko. an uparxei elegxo to password
+                if(mysqli_stmt_num_rows($sql_exet) == 1){                    
+                    
+                    // kataxoro tis times pou mou epistrefei to query stis metavlites $id, $username, $hashed_password
+                    mysqli_stmt_bind_result($sql_exet, $id, $username, $hashed_password);
+                    
+                    if(mysqli_stmt_fetch($sql_exet)){
+                    
+                        // elegxo an to password pou edose stin forma einai auto pou antistoixei sto username pou exo stin vasi
                         if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
+                            
+                            // apo tin stigmi pou to password sunexizo sto session
                             session_start();
                             
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            // pernao times ston pinaka Session
+                            $_SESSION["loggedin"] = true; // katastasi login
+                            $_SESSION["id"] = $id; // to id tou xristi
+                            $_SESSION["username"] = $username; // to onoma tou xristi                             
                             
-                            // Redirect user to welcome page
+                            // tora pou to $_SESSION["loggedin"] egine true kano tin anakateuthinsi sto welcome.php
                             header("location: welcome.php");
                         } else{
-                            // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
+                            // an to password einai lathos vgazo minima
+                            $password_err = "Λάθος password!";
                         }
                     }
                 } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                    // an den yparxei to username vgazo minima
+                    $username_err = "Δεν υπάρχει τέτοιος χρήστης...";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                // an den ektelestei gia kapoio logo to query vgazo minima
+                echo "Κάτι πήγε στραβά";
             }
         }
         
-        // Close statement
-        mysqli_stmt_close($stmt);
+        // kleino to query
+        mysqli_stmt_close($sql_exet);
     }
     
-    // Close connection
+    // kleino tin sundesi stin vasi
     mysqli_close($link);
 }
 ?>
@@ -93,13 +108,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="format.css" >
+<!--    <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    </style> -->
 </head>
-<body>
+<body class="body">
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
