@@ -108,33 +108,52 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> 
+-->
     <link rel="stylesheet" href="format.css" >
-<!--    <style type="text/css">
+<!--
+    <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
-    </style> -->
+    </style> 
+-->
 </head>
 <body class="body">
+    <div class="header">
+        <img src="atei-logo.png" class="logo">
+        <h1>ΠΜΣ Ευφυείς Τεχνολογίες Διαδικτύου</h1>
+        <h2>Τμήμα Πληροφορικής</h2>
+        <p>Μηχανική Λογισμικού για Διαδικτυακές Εφαρμογές</p>
+    </div>
+    
     <div class="wrapper">
         <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+        <p>Συμπληρώστε τα στοιχεία εισόδου σας.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+                <label>Όνομα χρήστη</label>
+                <br>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <br>
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>Κωδικός</label>
+                <br>
                 <input type="password" name="password" class="form-control">
+                <br>
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary" value="Είσοδος">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p>Δεν έχεις λογαριασμό; <a href="register.php">Κάνε εγγραφή τώρα</a>.</p>
         </form>
-    </div>    
+    </div>  
+   
+    <div class="footer">
+        <p>Αντώνης Καραγεώργος - Κώστας Κελεσίδης - Ιωάννης Μαρασλίδης - Μαρία Μαυρίδου</p>
+    </div>
 </body>
 </html>
