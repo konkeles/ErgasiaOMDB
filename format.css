@@ -1,3 +1,27 @@
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1a79bc;
+  color: white;
+  font-size: 30px;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #1a944b;
+   color: white;
+   text-align: center;
+}
+
+.logo {
+    border: 0px solid;
+    border-color: black;
+    opacity: 1;
+}
+
 img {
     border: 2px solid;
     border-color: black;
@@ -34,7 +58,9 @@ body {
 }
 
 .wrapper { 
-    width: 350px; padding: 20px; 
+    width: 350px; padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button,
@@ -42,7 +68,7 @@ input,
 optgroup,
 select,
 textarea {
-  margin: 0;
+  --margin: 15px;
   font: inherit;
   color: inherit;
 }

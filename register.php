@@ -98,6 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="format.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
@@ -105,6 +106,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+    
+    <div class="header">
+        <img src="atei-logo.png" class="logo">
+        <h1>ΠΜΣ Ευφυείς Τεχνολογίες Διαδικτύου</h1>
+        <h2>Τμήμα Πληροφορικής</h2>
+        <p>Μηχανική Λογισμικού για Διαδικτυακές Εφαρμογές</p>
+    </div>
+    
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -131,5 +140,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
     </div>    
+    
+    <div class="footer">
+        <p>Αντώνης Καραγεώργος - Κώστας Κελεσίδης - Ιωάννης Μαρασλίδης - Μαρία Μαυρίδου</p>
+    </div>
+    
 </body>
 </html>

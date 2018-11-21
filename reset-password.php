@@ -75,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
+    <link rel="stylesheet" href="format.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
@@ -82,6 +83,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+    
+    <div class="header">
+        <img src="atei-logo.png" class="logo">
+        <h1>ΠΜΣ Ευφυείς Τεχνολογίες Διαδικτύου</h1>
+        <h2>Τμήμα Πληροφορικής</h2>
+        <p>Μηχανική Λογισμικού για Διαδικτυακές Εφαρμογές</p>
+    </div>
+    
     <div class="wrapper">
         <h2>Reset Password</h2>
         <p>Please fill out this form to reset your password.</p>
@@ -101,6 +110,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <a class="btn btn-link" href="welcome.php">Cancel</a>
             </div>
         </form>
-    </div>    
+    </div>  
+    <div class="footer">
+        <p>Αντώνης Καραγεώργος - Κώστας Κελεσίδης - Ιωάννης Μαρασλίδης - Μαρία Μαυρίδου</p>
+    </div>
 </body>
 </html>

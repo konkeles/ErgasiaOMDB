@@ -26,6 +26,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!-- dikos mou kodikas telos -->
 </head>
 <body>
+    <div class="header">
+        <img src="atei-logo.png" class="logo">
+        <h1>ΠΜΣ Ευφυείς Τεχνολογίες Διαδικτύου</h1>
+        <h2>Τμήμα Πληροφορικής</h2>
+        <p>Μηχανική Λογισμικού για Διαδικτυακές Εφαρμογές</p>
+    </div>
+    
     <div class="page-header">
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
     </div>
@@ -52,12 +59,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div id="txtHint" class="div"><b>Person info will be listed here...</b></div>
         
 <!-- dikos mou kodikas telos -->   
-    <footer style="margin:10px">
+    <div style="margin:10px; padding:100px;">
         <p>
             <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
             <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
         </p>
-    </footer>
-    
+    </div>
+    <div class="footer">
+        <p>Αντώνης Καραγεώργος - Κώστας Κελεσίδης - Ιωάννης Μαρασλίδης - Μαρία Μαυρίδου</p>
+    </div>
 </body>
 </html>
