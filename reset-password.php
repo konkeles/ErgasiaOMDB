@@ -113,6 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>  
     <div class="footer">
         <p>Αντώνης Καραγεώργος - Κώστας Κελεσίδης - Ιωάννης Μαρασλίδης - Μαρία Μαυρίδου</p>
+        <p>2018</p>
     </div>
 </body>
 </html>
