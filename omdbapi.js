@@ -24,6 +24,8 @@ function omdbApi() {
         yearParam='';
     }
     
+    document.getElementById('selection_images').innerHTML = '';
+    
     $.getJSON('http://www.omdbapi.com/?s=' + searchValue + yearParam + '&apikey=5b0f2222', (response =>{
                  console.log(response);
         response.Search.forEach(movie => {

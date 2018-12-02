@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
 <!-- dikos mou kodikas arxi -->
     <link rel="stylesheet" href="format.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="omdbapi.js"></script>
 <!-- dikos mou kodikas telos -->
 </head>
