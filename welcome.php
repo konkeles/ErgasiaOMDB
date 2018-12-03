@@ -21,11 +21,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     
 <!-- dikos mou kodikas arxi -->
     <link rel="stylesheet" href="format.css" >
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="omdbapi.js"></script>
 <!-- dikos mou kodikas telos -->
 </head>
-<body>
+<body class="body">
     <div class="header">
         <img src="atei-logo.png" class="logo">
         <h1>ΠΜΣ Ευφυείς Τεχνολογίες Διαδικτύου</h1>
@@ -33,7 +33,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <p>Μηχανική Λογισμικού για Διαδικτυακές Εφαρμογές</p>
     </div>
     
-    <div class="page-header">
+    <div><!--<div class="page-header">-->
         <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
     </div>
     
